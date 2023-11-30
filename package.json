@@ -1,0 +1,18 @@
+{
+  "name": "store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/FahadDev2/store.git",
+  "author": "FahadDev2 <fahadss@zohomail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}

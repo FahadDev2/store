@@ -1,0 +1,3 @@
+first problen after install project is that : 
+
+--- we will not run in terminal direct   to build 
