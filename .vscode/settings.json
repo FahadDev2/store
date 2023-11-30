@@ -1,0 +1,4 @@
+{
+    "prettier.singleQuote": true,
+    "vs-code-prettier-eslint.prettierLast": true
+}
