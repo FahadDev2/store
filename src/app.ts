@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
+import handlErros from './middlewares/error.middlewares';
 const app: Application = express();
 
 app.use(express.json());
@@ -24,9 +25,19 @@ app.use(
   })
 );
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', handlErros, (_req: Request, res: Response) => {
+  throw new Error('Hello');
+  //   throw new Error('page Not esites');
   res.json({
     message: 'Hello World',
+  });
+});
+
+app.use(handlErros);
+
+app.use((_req: Request, res: Response) => {
+  res.status(404).json({
+    message: 'opps Page Not found',
   });
 });
 
