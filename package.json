@@ -12,7 +12,7 @@
     "format": "prettier --write ./src/**/*/*.ts",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
-    "test": "jest --forceExit --detectOpenHandles"
+    "test": "jest --forceExit"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.23.3",

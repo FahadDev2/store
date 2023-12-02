@@ -5,7 +5,6 @@ import rateLimit from 'express-rate-limit';
 import handlErros from './middlewares/error.middlewares';
 const app: Application = express();
 
-import db from './database';
 app.use(express.json());
 app.use(morgan('common'));
 app.use(
@@ -40,20 +39,6 @@ app.use((_req: Request, res: Response) => {
   res.status(404).json({
     message: 'opps Page Not found',
   });
-});
-
-db.connect().then(async (client) => {
-  try {
-    const a = await client.query('SELECT NOW()');
-    console.log('from data base');
-
-    //dont forget to relase connection after query
-    client.release();
-    console.log(a.rows);
-  } catch (error) {
-    client.release();
-    console.log(error);
-  }
 });
 
 export default app;
