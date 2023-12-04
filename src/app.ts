@@ -3,8 +3,8 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import handlErros from './middlewares/error.middlewares';
+import router from './routes';
 const app: Application = express();
-
 app.use(express.json());
 app.use(morgan('common'));
 app.use(
@@ -25,13 +25,7 @@ app.use(
   })
 );
 
-app.get('/', handlErros, (_req: Request, res: Response) => {
-  throw new Error('Hello');
-  //   throw new Error('page Not esites');
-  res.json({
-    message: 'Hello World',
-  });
-});
+app.use('/api/v1/', router);
 
 app.use(handlErros);
 
